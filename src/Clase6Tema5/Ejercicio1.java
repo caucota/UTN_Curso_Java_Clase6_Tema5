@@ -1,7 +1,7 @@
 package Clase6Tema5;
 
 import Entities.Carrito;
-import Entities.Descuento;
+import Entities.DescuentoPorc;
 import Entities.ItemCarrito;
 import Entities.Persona;
 import Entities.Producto;
@@ -13,7 +13,7 @@ public class Ejercicio1 {
 		
 		Persona cliente = new Persona("Perez", "Juan", "5512455");
 		Carrito carritoCompra = new Carrito(cliente);
-		Descuento descHoy = new Descuento("Solo por hoy 5% off", 5.00);
+		DescuentoPorc descHoy = new DescuentoPorc("Solo por hoy 5% off", 5.00);
 		
 		carritoCompra.setDesc(descHoy);
 		

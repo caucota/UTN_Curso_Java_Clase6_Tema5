@@ -1,12 +1,12 @@
 package Entities;
 
-public class Descuento {
+public abstract class Descuento {
 	private String descripcion;
-	private Double porcentajeDesc;
+	private Double valorDesc;
 	
-	public Descuento(String descripcion, Double porcentajeDesc) {
+	public Descuento(String descripcion, Double valorDesc) {
 		this.descripcion = descripcion;
-		this.porcentajeDesc = porcentajeDesc;
+		this.valorDesc = valorDesc;
 	}
 	public String getDescripcion() {
 		return descripcion;
@@ -14,11 +14,13 @@ public class Descuento {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public Double getPorcentajeDesc() {
-		return porcentajeDesc;
+	public Double getValorDesc() {
+		return valorDesc;
 	}
-	public void setPorcentajeDesc(Double porcentajeDesc) {
-		this.porcentajeDesc = porcentajeDesc;
+	public void setValorDesc(Double valorDesc) {
+		this.valorDesc = valorDesc;
 	}
+	
+	public abstract Double getMontoDescuento(Double TotalCompra);
 
 }

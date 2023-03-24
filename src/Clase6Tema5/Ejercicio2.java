@@ -3,11 +3,9 @@ package Clase6Tema5;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 import Entities.Carrito;
-import Entities.Descuento;
+import Entities.DescuentoPorMonto;
 import Entities.ItemCarrito;
 import Entities.Persona;
 import Entities.Producto;
@@ -18,10 +16,12 @@ public class Ejercicio2 {
 		String[] itemCart = new String[3];
 		Producto prodRead = new Producto("", 0.0);
 		int cantidad = 0;
+		Double totalCompra = 0.0;
+		Double montoDescuento = 0.0;
 		
 		Persona cliente = new Persona("Perez", "Juan", "1512455");
 		Carrito carritoCompra = new Carrito(cliente);
-		Descuento descHoy = new Descuento("No hay descuento", 0.00);
+		DescuentoPorMonto descHoy = new DescuentoPorMonto("No hay descuento", 0.00);
 		carritoCompra.setDesc(descHoy);
 		
 		try {
@@ -35,8 +35,9 @@ public class Ejercicio2 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		System.out.println("Total: " + carritoCompra.calcularTotal());
+		totalCompra = carritoCompra.calcularTotal();
+		montoDescuento = carritoCompra.getDesc().getMontoDescuento(totalCompra);
+		System.out.println("Total: " + (totalCompra - montoDescuento));
 		//carritoCompra.mostrarCarrito();
 
 	}

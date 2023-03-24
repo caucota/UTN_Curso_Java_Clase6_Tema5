@@ -76,10 +76,14 @@ public class Carrito {
 			total = total + (unDetalle.getProducto().getPrecio() * unDetalle.getCantidad());  
 //			System.out.println(unDetalle.getProducto().getNombreProducto() +  " Cant: " + unDetalle.getCantidad() + " Precio:" +  unDetalle.getProducto().getPrecio() ) ;
 		}
+		
 		return total;
 	}
 	
+	
 	public void mostrarCarrito() {
+		Double totalCarrito = calcularTotal();
+		Double montoDescuento = this.getDesc().getMontoDescuento(totalCarrito);
 		System.out.println("-------------------------");
 		System.out.println("--- Carrito de Compra ---");
 		System.out.println("-------------------------");
@@ -89,7 +93,9 @@ public class Carrito {
 		System.out.println("-------------------------");
 		mostrarDetalleCarrito();
 		System.out.println("-------------------------");
-		System.out.println("Total Compra:" + calcularTotal());
+		System.out.println("Total Compra:" + totalCarrito);
+		System.out.println("Descuento $: " +  montoDescuento);
+		System.out.println("Total a Pagar:" + (totalCarrito - montoDescuento) );
 	}
 	public void mostrarDetalleCarrito() {
 		System.out.println("Detalle de Productos");
